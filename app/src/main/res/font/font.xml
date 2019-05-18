@@ -10,4 +10,30 @@
         android:fontStyle="normal"
         android:fontWeight="400"
         />
+    <font
+        android:font="@font/hublackgomusin"
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        />
+    <font
+        android:font="@font/hugoodday"
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        />
+    <font
+        android:font="@font/hulikefirst"
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        />
+    <font
+        android:font="@font/humaskingtape"
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        />
+    <font
+        android:font="@font/huseoulcontrychicken"
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        />
+
 </font-family>

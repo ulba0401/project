@@ -1,12 +1,11 @@
 package com.example.networkdic;
 
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.OvalShape;
+
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
-import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
@@ -16,7 +15,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.networkdic.menu.asc.Asc_main;
+import com.example.networkdic.menu.bookmark.Bookmark_main;
+import com.example.networkdic.menu.main.Main_main;
+import com.example.networkdic.menu.notice.Notice_main;
+import com.example.networkdic.menu.unit.Unit_main;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -28,6 +33,8 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //시작하자마자 메인화면 프래그먼트 띄우기
+        onFragmentChange(1);
 
         //setSupportActionBar : 액션바 설정
         toolbar = findViewById(R.id.toolbar);
@@ -37,15 +44,6 @@ public class MainActivity extends AppCompatActivity
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false);
 
-        //편지봉투모양 버튼
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         //메뉴 나오게 하기
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -69,31 +67,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    //메뉴보이기
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-
-    //옵션아이템 선택시
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     //네비게이션 메뉴 아이템 선택시
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -102,21 +75,81 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_tools) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+            //메인화면
+            onFragmentChange(1);
+        } else if (id == R.id.nav_asc) {
+            //전체보기
+            onFragmentChange(2);
+        } else if (id == R.id.nav_unil) {
+            //단원별 보기
+            onFragmentChange(3);
+        } else if (id == R.id.nav_bookmark) {
+            //북마크
+            onFragmentChange(4);
+        } else if (id == R.id.nav_notice) {
+            //고객센터
+            onFragmentChange(5);
+        } else if (id == R.id.nav_login) {
+            //로그인
+            onFragmentChange(6);
+        } else if (id == R.id.nav_join) {
+            //회원가입
+            onFragmentChange(7);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void onFragmentChange(int i){
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        TextView title = findViewById(R.id.toolbarTitle);
+
+        Asc_main asc = new Asc_main();
+        Bookmark_main bookmark = new Bookmark_main();
+        Main_main main = new Main_main();
+        Notice_main notice = new Notice_main();
+        Unit_main unit = new Unit_main();
+
+        if ( i == 1 ) {
+            //메인화면
+            title.setText(R.string.app_name);
+            ft.addToBackStack(null);
+            ft.replace(R.id.container, main).commit();
+        }
+        else if ( i == 2 ) {
+            //전체보기
+            title.setText(R.string.menu_asc);
+            ft.addToBackStack(null);
+            ft.replace(R.id.container, asc).commit();
+        }
+        else if ( i == 3 ) {
+            //단원보기
+            title.setText(R.string.menu_unit);
+            ft.addToBackStack(null);
+            ft.replace(R.id.container, unit).commit();
+        }
+        else if ( i == 4 ) {
+            //북마크
+            title.setText(R.string.menu_bookmark);
+            ft.addToBackStack(null);
+            ft.replace(R.id.container, bookmark).commit();
+        }
+        else if ( i == 5 ) {
+            //고객센터
+            title.setText(R.string.menu_notice);
+            ft.addToBackStack(null);
+            ft.replace(R.id.container, notice).commit();
+        }
+        else if ( i == 6 ) {
+            //로그인
+        }
+        else if ( i == 7 ) {
+            //회원가입
+        }
+
+
     }
 }
