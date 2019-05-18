@@ -1,6 +1,7 @@
 package com.example.networkdic;
 
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -14,8 +15,6 @@ import android.support.v4.widget.DrawerLayout;
 
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.widget.TextView;
 
 import com.example.networkdic.menu.asc.Asc_main;
 import com.example.networkdic.menu.bookmark.Bookmark_main;
@@ -105,7 +104,6 @@ public class MainActivity extends AppCompatActivity
     public void onFragmentChange(int i){
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        TextView title = findViewById(R.id.toolbarTitle);
 
         Asc_main asc = new Asc_main();
         Bookmark_main bookmark = new Bookmark_main();
@@ -115,31 +113,26 @@ public class MainActivity extends AppCompatActivity
 
         if ( i == 1 ) {
             //메인화면
-            title.setText(R.string.app_name);
             ft.addToBackStack(null);
             ft.replace(R.id.container, main).commit();
         }
         else if ( i == 2 ) {
             //전체보기
-            title.setText(R.string.menu_asc);
             ft.addToBackStack(null);
             ft.replace(R.id.container, asc).commit();
         }
         else if ( i == 3 ) {
             //단원보기
-            title.setText(R.string.menu_unit);
             ft.addToBackStack(null);
             ft.replace(R.id.container, unit).commit();
         }
         else if ( i == 4 ) {
             //북마크
-            title.setText(R.string.menu_bookmark);
             ft.addToBackStack(null);
             ft.replace(R.id.container, bookmark).commit();
         }
         else if ( i == 5 ) {
             //고객센터
-            title.setText(R.string.menu_notice);
             ft.addToBackStack(null);
             ft.replace(R.id.container, notice).commit();
         }

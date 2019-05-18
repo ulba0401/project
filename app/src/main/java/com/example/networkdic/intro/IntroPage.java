@@ -8,23 +8,22 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.ProgressBar;
 
+import com.airbnb.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieDrawable;
 import com.example.networkdic.MainActivity;
 import com.example.networkdic.R;
 
 public class IntroPage extends AppCompatActivity {
 
-    ProgressBar progressBar;
     Handler handler = new Handler(){};
-
-    int value = 0; // progressBar 값
-    int add = 4; // 증가량, 방향
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intro_page); //xml , java 소스 연결
 
-        progressBar = findViewById(R.id.progressBar_intro);
+        LottieAnimationView animationView = findViewById(R.id.lottieAnimView);
+        setUpAnimation(animationView);
 
         handler.sendEmptyMessage(0);
 
@@ -36,39 +35,14 @@ public class IntroPage extends AppCompatActivity {
                 finish();
             }
         },3000); //3초 뒤에 Runner객체 실행하도록 함
-
-
-
-
-        final ProgressBar pb = (ProgressBar) findViewById(R.id.progressBar_intro);
-
-        Thread t = new Thread(new Runnable() {
-            @Override
-            public void run() { // Thread 로 작업할 내용을 구현
-                while(true) {
-                    value = value + add;
-
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() { // 화면에 변경하는 작업을 구현
-                            pb.setProgress(value);
-                        }
-                    });
-
-                    try {
-                        Thread.sleep(100); // 시간지연
-                    } catch (InterruptedException e) {    }
-                } // end of while
-            }
-        });
-        t.start(); // 쓰레드 시작
-
-
     }
 
-    @Override
-    protected void onPause(){
-        super.onPause();
-        finish();
+    private void setUpAnimation(LottieAnimationView animationView) {
+        // 재생할 애니메이션 넣어준다.
+        animationView.setAnimation("2275-loading-book.json");
+        // 반복횟수를 무한히 주고 싶을 땐 LottieDrawable.INFINITE or 원하는 횟수
+        animationView.setRepeatCount(LottieDrawable.INFINITE);
+        // 시작
+        animationView.playAnimation();
     }
 }
