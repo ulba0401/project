@@ -21,6 +21,7 @@
         android:theme="@style/AppTheme.NoActionBar">
          <!-- 인트로 액티비티 -->
         <activity android:name=".intro.IntroPage">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

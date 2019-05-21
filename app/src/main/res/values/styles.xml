@@ -6,6 +6,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">#f24b88</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -20,6 +22,10 @@
     <style name="titleStyle">
         <item name="android:textColor">#ffffff</item>
         <item name="android:textSize">25sp</item>
+    </style>
+
+    <style name="statusbar">
+        <item name="android:background">#000000</item>
     </style>
 
 </resources>
