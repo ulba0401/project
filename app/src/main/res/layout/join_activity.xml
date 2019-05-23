@@ -17,28 +17,56 @@
         android:textSize="@dimen/com_facebook_profilepictureview_preset_size_small"/>
 
     <EditText
+        android:id="@+id/join_id"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         style="@style/join"
+        android:inputType="textPersonName"
         android:hint="@string/setid"/>
 
     <EditText
+        android:id="@+id/join_pw"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:inputType="textPassword"
         style="@style/join"
         android:hint="@string/setpw"/>
 
     <EditText
+        android:id="@+id/join_pwc"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         style="@style/join"
+        android:inputType="textPassword"
         android:hint="@string/setpwch"/>
 
+
     <EditText
+        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         style="@style/join"
-        android:hint="@string/setphone"/>
+        android:inputType="textEmailAddress"
+        android:hint="@string/setemail"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/at"
+            style="@style/common_text"
+            android:textSize="@dimen/btn"
+            android:layout_marginRight="20dp"/>
+        <Spinner
+            android:id="@+id/email_select"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            style="@style/common_text"
+            android:layout_marginBottom="30dp"
+            android:entries="@array/email"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,7 +78,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/submit"
-            style="@style/btnon"
+            style="@style/btn_s_off"
             android:layout_marginRight="10dp"
             android:layout_weight="1"/>
 
@@ -58,7 +86,7 @@
             android:id="@+id/cancel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            style="@style/btnoff"
+            style="@style/btn_c"
             android:text="@string/cancel"
 
             android:layout_weight="1"/>

@@ -23,9 +23,9 @@
     <string name="setpw">비밀번호</string>
     <string name="setpwch">비밀번호 확인</string>
     <string name="setaddr">주소</string>
-    <string name="email">이메일</string>
-    <string name="setphone">핸드폰</string>
-    
+    <string name="setemail">이메일</string>
+    <string name="at">　@　</string>
+
     <string name="partition">　/　</string>
 
     <string name="findid">아이디 찾기</string>
@@ -34,5 +34,34 @@
 
     <string name="submit">가입하기</string>
     <string name="cancel">취소하기</string>
+
+    <string name="createright">Copyright 2019. Sunchon National University Computer Education. All rights reserved.</string>
+    <string name="r_unit">관련단원</string>
+    <string name="r_word">관련단어</string>
+
+    <string name="ex">예시입니다</string>
+    <string name="ex_word">AAAAAA</string>
+    <string name="ex_content">예시입니다\n\n\n예시가 잘 나올까요?
+        제발 잘 나와주었으면 좋겠습니다!!!\n\n\n
+        엔터가 이렇게 쓰는게 맞는지 모르겠습니다 이렇게 써서 된다면 참 좋을텐데 말이죠
+        예시입니다\n\n\예시가 잘 나올까요?
+        제발 잘 나와주었으면 좋겠습니다!!!\n\n\n
+        엔터가 이렇게 쓰는게 맞는지 모르겠습니다 이렇게 써서 된다면 참 좋을텐데 말이죠
+        예시입니다\n\n\n예시가 잘 나올까요?
+        제발 잘 나와주었으면 좋겠습니다!!!\n\n\n\
+        엔터가 이렇게 쓰는게 맞는지 모르겠습니다 이렇게 써서 된다면 참 좋을텐데 말이죠
+        예시입니다\n\n\n\n예시가 잘 나올까요?
+        제발 잘 나와주었으면 좋겠습니다!!!\n\n\n
+        엔터가 이렇게 쓰는게 맞는지 모르겠습니다 이렇게 써서 된다면 참 좋을텐데 말이죠\n
+        제대로 잘 나오는 것같아서 행복합니다^^
+        제발 잘 나와주었으면 좋겠습니다!!!\n\n\n\
+        엔터가 이렇게 쓰는게 맞는지 모르겠습니다 이렇게 써서 된다면 참 좋을텐데 말이죠
+        예시입니다\n\n\n\n예시가 잘 나올까요?
+        제발 잘 나와주었으면 좋겠습니다!!!\n\n\n
+        엔터가 이렇게 쓰는게 맞는지 모르겠습니다 이렇게 써서 된다면 참 좋을텐데 말이죠\n
+        제대로 잘 나오는 것같아서 행복합니다^^
+    </string>
+
+
 
 </resources>

@@ -8,4 +8,8 @@
     <dimen name="common">11sp</dimen>
     <dimen name="btn">14sp</dimen>
     <dimen name="menu">12sp</dimen>
+    <dimen name="list">14sp</dimen>
+    <dimen name="word">30sp</dimen>
+    <dimen name="copyright">9sp</dimen>
+    <dimen name="rl_list">9sp</dimen>
 </resources>
