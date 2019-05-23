@@ -25,10 +25,10 @@
         <menu>
             <item
                 android:id="@+id/nav_login"
-                android:title="@string/menu_login" />
+                android:title="@string/menu_login"/>
             <item
                 android:id="@+id/nav_join"
-                android:title="@string/menu_join" />
+                android:title="@string/menu_join"/>
         </menu>
     </item>
 

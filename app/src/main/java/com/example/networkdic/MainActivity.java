@@ -16,6 +16,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import com.example.networkdic.login.Join;
+import com.example.networkdic.login.Login;
 import com.example.networkdic.menu.asc.Asc_main;
 import com.example.networkdic.menu.bookmark.Bookmark_main;
 import com.example.networkdic.menu.main.Main_main;
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar, R.string.navigation_drawer_close, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
@@ -138,9 +140,13 @@ public class MainActivity extends AppCompatActivity
         }
         else if ( i == 6 ) {
             //로그인
+            Intent intent = new Intent(MainActivity.this, Login.class);
+            startActivity(intent);
         }
         else if ( i == 7 ) {
             //회원가입
+            Intent intent = new Intent(MainActivity.this, Join.class);
+            startActivity(intent);
         }
 
 

@@ -5,4 +5,7 @@
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">100dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="common">11sp</dimen>
+    <dimen name="btn">14sp</dimen>
+    <dimen name="menu">12sp</dimen>
 </resources>

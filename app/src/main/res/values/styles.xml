@@ -19,13 +19,49 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="titleStyle">
-        <item name="android:textColor">#ffffff</item>
-        <item name="android:textSize">25sp</item>
+    <style name="statusbar">
+        <item name="android:background">@color/black</item>
     </style>
 
-    <style name="statusbar">
-        <item name="android:background">#000000</item>
+    <style name="common_text">
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/common</item>
+    </style>
+
+    <style name="hint_text">
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">@dimen/common</item>
+        <item name="android:paddingLeft">10dp</item>
+    </style>
+
+    <style name="btnon">
+        <item name="android:textColorHint">@color/hint</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/btn</item>
+        <item name="android:background">@color/commonColor</item>
+    </style>
+
+    <style name="btnoff">
+        <item name="android:textColorHint">@color/hint</item>
+        <item name="android:textColor">@color/commonColor</item>
+        <item name="android:textSize">@dimen/btn</item>
+        <item name="android:background">@drawable/btn_off</item>
+    </style>
+
+    <style name="menu">
+        <item name="android:textColorHint">@color/black</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/menu</item>
+        <item name="android:background">@color/commonColor</item>
+    </style>
+    <style name="join">
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">@dimen/common</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
     </style>
 
 </resources>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_join"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/commonColor"
+        android:textSize="@dimen/com_facebook_profilepictureview_preset_size_small"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        style="@style/join"
+        android:hint="@string/setid"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        style="@style/join"
+        android:hint="@string/setpw"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        style="@style/join"
+        android:hint="@string/setpwch"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        style="@style/join"
+        android:hint="@string/setphone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            style="@style/btnon"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/btnoff"
+            android:text="@string/cancel"
+
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+</LinearLayout>

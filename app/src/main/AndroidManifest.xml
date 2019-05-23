@@ -20,6 +20,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
          <!-- 인트로 액티비티 -->
+        <activity android:name=".login.Login"/>
+        <activity android:name=".login.Join"/>
         <activity android:name=".intro.IntroPage">
 
             <intent-filter>
