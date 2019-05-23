@@ -50,7 +50,7 @@
         android:hint="@string/setemail"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
@@ -66,6 +66,28 @@
             style="@style/common_text"
             android:layout_marginBottom="30dp"
             android:entries="@array/email"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp">
+        <ToggleButton
+            android:id="@+id/check"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="10dp"
+            android:textOn=" "
+            android:textOff=" "
+            android:background="@drawable/check_off"/>
+        <TextView
+            android:id="@+id/check_t"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  "
+            style="@style/content"
+            android:layout_gravity="center"
+            android:textColorLink="@color/colorAccent"/>
     </LinearLayout>
 
     <LinearLayout
