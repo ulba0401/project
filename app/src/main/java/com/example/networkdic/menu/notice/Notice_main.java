@@ -8,13 +8,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.example.networkdic.MainActivity;
+import com.example.networkdic.R;
 
 import static com.example.networkdic.R.layout.notice_main_fragment;
 
 public class Notice_main extends Fragment {
     MainActivity activity;
+    ListView notice_list;
 
     @Override
     public void onAttach(Context context) {
@@ -32,6 +36,12 @@ public class Notice_main extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(notice_main_fragment, container, false);
+
+        notice_list = rootView.findViewById(R.id.notice_list);
+
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(getContext(), R.array.notice, R.layout.notice_drawer_listview);
+        notice_list.setAdapter(adapter);
+
         return rootView;
     }
 }

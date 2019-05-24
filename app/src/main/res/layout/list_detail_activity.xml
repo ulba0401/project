@@ -10,18 +10,18 @@
         android:layout_height="0dp"
         android:orientation="horizontal"
         android:layout_weight="7"
-        android:weightSum="3">
+        android:weightSum="10">
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="3"
             android:text="@string/ex_word"
             style="@style/word"/>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="2"
+            android:layout_weight="5.5"
             android:weightSum="2">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -34,6 +34,21 @@
                 style="@style/hint_text"
                 android:gravity="center|left"
                 android:text="@string/ex"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+            <ToggleButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textOn=" "
+                android:textOff=""
+                android:background="@drawable/star_off"/>
         </LinearLayout>
 
     </LinearLayout>

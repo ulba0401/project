@@ -1,13 +1,10 @@
 package com.example.networkdic.login;
 
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.util.Linkify;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,10 +23,10 @@ import static com.example.networkdic.task.common.CommonMethod.isNetworkConnected
 
 public class Join extends AppCompatActivity {
 
-    Button submit_btn, cancel_btn;
+    Button cancel_btn;
     EditText id, pw, pwc, email;
     Spinner email_select;
-    ToggleButton check_btn;
+    ToggleButton check_btn, submit_btn;
     TextView check_txt;
     int check = 0;
 
@@ -76,10 +73,12 @@ public class Join extends AppCompatActivity {
             if (check_btn.isChecked()) {
                 check = 1;
                 check_btn.setBackgroundDrawable(getResources().getDrawable(R.drawable.check_on));
+                submit_btn.setBackgroundDrawable(getResources().getDrawable(R.drawable.btn_on));
                 check_txt.setTextColor(getResources().getColor(R.color.commonColor));
             }else{
                 check = 0;
                 check_btn.setBackgroundDrawable(getResources().getDrawable(R.drawable.check_off));
+                submit_btn.setBackgroundDrawable(getResources().getDrawable(R.drawable.btn_off2));
                 check_txt.setTextColor(getResources().getColor(R.color.darkgray));
             }
             }

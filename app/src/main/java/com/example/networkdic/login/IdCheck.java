@@ -116,7 +116,7 @@ public class IdCheck extends AsyncTask<Void,Void,Integer> {
     }
 
     private void readMessage(JsonReader reader) throws IOException {
-        String id="", pw="", email="",  result="";
+        String id="", result="";
 
         while (reader.hasNext()){
             String readStr = reader.nextName();
@@ -126,12 +126,6 @@ public class IdCheck extends AsyncTask<Void,Void,Integer> {
             }else if (readStr.equals("id")){
                 id = reader.nextString();
                 vo.setId(id);
-            }else if (readStr.equals("pw")){
-                pw = reader.nextString();
-                vo.setPw(pw);
-            }else if (readStr.equals("email")){
-                email = reader.nextString();
-                vo.setEmail(email);
             }else{
                 reader.skipValue();
             }

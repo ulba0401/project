@@ -2,11 +2,8 @@ package com.example.networkdic.login;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v7.app.AppCompatActivity;
-import android.text.method.LinkMovementMethod;
-import android.text.util.Linkify;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,11 +11,8 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.example.networkdic.BackPressCloseHandler;
-import com.example.networkdic.MainActivity;
 import com.example.networkdic.R;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Login extends AppCompatActivity {
     Button loginBtn;

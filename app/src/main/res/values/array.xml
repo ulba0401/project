@@ -12,4 +12,14 @@
         <item>scnu.ac.kr</item>
         <item>직접입력</item>
     </string-array>
+
+    <string-array name="notice">
+        <item>공지사항</item>
+        <item>자주 묻는 질문</item>
+        <item>문의하기</item>
+        <item>이용약관</item>
+        <item>개인정보 처리방침</item>
+        <item>서비스 소개</item>
+        <item>제조사 의견 남기기</item>
+    </string-array>
 </resources>
