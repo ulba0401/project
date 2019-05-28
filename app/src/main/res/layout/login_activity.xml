@@ -17,7 +17,7 @@
             android:text="@string/menu_login"
             android:textColor="@color/commonColor"
             android:gravity="center"
-            android:textSize="@dimen/com_facebook_profilepictureview_preset_size_small"/>
+           />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

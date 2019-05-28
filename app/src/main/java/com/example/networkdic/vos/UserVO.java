@@ -5,13 +5,11 @@ import java.io.Serializable;
 public class UserVO implements Serializable {
     String id, pw, email, admin, isdel;
     private String result;
-    String logintype;
 
-    public UserVO(String id, String pw, String email, String logintype) {
+    public UserVO(String id, String pw, String email) {
         this.id = id;
         this.pw = pw;
         this.email = email;
-        this.logintype = logintype;
     }
 
     public UserVO () {}
@@ -38,14 +36,6 @@ public class UserVO implements Serializable {
 
     public void setResult(String result) {
         this.result = result;
-    }
-
-    public String getLogintype() {
-        return logintype;
-    }
-
-    public void setLogintype(String logintype) {
-        this.logintype = logintype;
     }
 
     public String getId() {

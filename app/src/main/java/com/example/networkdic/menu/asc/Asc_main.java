@@ -15,13 +15,18 @@ import com.example.networkdic.MainActivity;
 import com.example.networkdic.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
+import com.example.networkdic.task.indexList.IndexableListView;
+import com.example.networkdic.task.indexList.StringMatcher;
+import com.example.networkdic.vos.DiclistVO;
 
 import static com.example.networkdic.R.layout.asc_main_fragment;
 
 public class Asc_main extends Fragment {
     MainActivity activity;
-    private ArrayList<String> mItems;
+    private ArrayList<DiclistVO> mItems;
     private IndexableListView mListView;
 
     @Override
@@ -40,7 +45,15 @@ public class Asc_main extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(asc_main_fragment, container, false);
-        ContentAdapter adapter = new ContentAdapter(getContext(),android.R.layout.simple_list_item_1, mItems);
+
+        mItems = new ArrayList<DiclistVO>();
+        //사용할 데이터 집어넣기
+
+        for (int i = 0; i < 10; i++){
+
+            Collections.sort(mItems);
+        }
+        ContentAdapter adapter = new ContentAdapter(getContext(), R.layout.list_drawer_listview, mItems);
 
         mListView = rootView.findViewById(R.id.asc_list);
         mListView.setAdapter(adapter);
@@ -48,12 +61,12 @@ public class Asc_main extends Fragment {
         return rootView;
     }
 
-    private class ContentAdapter extends ArrayAdapter<String> implements SectionIndexer {
+    private class ContentAdapter extends ArrayAdapter<DiclistVO> implements SectionIndexer {
 
         private String mSections = "#ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         public ContentAdapter(Context context, int textViewResourceId,
-                              List<String> objects) {
+                              List<DiclistVO> objects) {
             super(context, textViewResourceId, objects);
         }
 
