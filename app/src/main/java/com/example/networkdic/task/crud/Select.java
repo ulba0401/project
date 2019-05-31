@@ -49,7 +49,7 @@ public class Select extends AsyncTask<Void, Void, Void> {
         String postURL = "";
 
         if (controller == 1) {
-            postURL = ipConfig + "/mydictionary/ascselect";
+            postURL = ipConfig + "/cnd/ascselect";
         }
 
         try {
