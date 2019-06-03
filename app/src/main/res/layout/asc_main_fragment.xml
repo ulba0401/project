@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <com.example.networkdic.task.indexList.IndexableListView
+        android:id="@+id/asc_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/asc_list" />
+         />
 </LinearLayout>
