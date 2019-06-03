@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.example.networkdic.task.crud.Select;
 import com.example.networkdic.task.indexList.ContentAdapter;
 import com.example.networkdic.task.indexList.IndexableListView;
 import com.example.networkdic.task.indexList.StringMatcher;
@@ -27,8 +28,9 @@ import static com.example.networkdic.R.layout.asc_main_fragment;
 
 public class Asc_main extends Fragment {
     MainActivity activity;
-    private ArrayList<DiclistVO> dlist;
+    ArrayList<DiclistVO> dlist = new ArrayList<>();
     private IndexableListView mListView;
+    Select select;
 
     @Override
     public void onAttach(Context context) {
@@ -48,13 +50,23 @@ public class Asc_main extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(asc_main_fragment, container, false);
 
         //사용할 데이터 집어넣기
-        dlist = new ArrayList<>();
+        try {
+            select = new Select(dlist, "asc");
+            dlist = select.execute().get();
+            ContentAdapter adapter =
+                    new ContentAdapter(getContext(), R.layout.list_drawer_listview, dlist);
 
-        ContentAdapter adapter = new ContentAdapter(getContext(), R.layout.list_drawer_listview, dlist);
+            mListView = rootView.findViewById(R.id.asc_list);
+            mListView.setAdapter(adapter);
+            mListView.setFastScrollEnabled(true);
 
-        mListView = rootView.findViewById(R.id.asc_list);
-        mListView.setAdapter(adapter);
-        mListView.setFastScrollEnabled(true);
+        } catch (Exception e){
+            e.getMessage();
+        }
+
+
+
+
 
 
 

@@ -23,14 +23,13 @@ import java.util.ArrayList;
 
 import static com.example.networkdic.task.common.CommonMethod.ipConfig;
 
-public class Select extends AsyncTask<Void, Void, Void> {
+public class Select extends AsyncTask<ArrayList<DiclistVO>, Void, ArrayList<DiclistVO>> {
 
     ArrayList<DiclistVO> dlist;
 
-    ContentAdapter list_adapter;
-
     int controller;
     String id;
+    String methode;
 
     @Override
     protected void onPreExecute() {
@@ -39,7 +38,7 @@ public class Select extends AsyncTask<Void, Void, Void> {
     }
 
     @Override
-    protected Void doInBackground(Void... voids) {
+    protected ArrayList<DiclistVO> doInBackground(ArrayList<DiclistVO>... voids) {
         HttpClient httpClient = null;
         HttpPost httpPost = null;
         HttpResponse httpResponse = null;
@@ -49,7 +48,7 @@ public class Select extends AsyncTask<Void, Void, Void> {
         String postURL = "";
 
         if (controller == 1) {
-            postURL = ipConfig + "/cnd/ascselect";
+            postURL = ipConfig + "/cnd/wordselect?methode=" + methode;
         }
 
         try {
@@ -85,35 +84,28 @@ public class Select extends AsyncTask<Void, Void, Void> {
         }
 
 
-        return null;
+        return dlist;
     }
 
-    private void readJsonStream(InputStream inputStream)throws IOException{
+    private void readJsonStream(InputStream inputStream)throws IOException {
         JsonReader reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));
 
         try {
             reader.beginArray();
 
-            if (controller == 1){
-                while (reader.hasNext()){
+            if (controller == 1) {
+                while (reader.hasNext()) {
                     dlist.add(new ReadMessage().ascReadMessage(reader));
                 }
             }
-        }finally {
+        } finally {
             reader.close();
         }
     }
 
-
-    @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
-        if (controller == 1) {list_adapter.notifyDataSetChanged();}
-    }
-
-    public Select(ArrayList<DiclistVO> dlist, ContentAdapter list_adapter){
+    public Select(ArrayList<DiclistVO> dlist, String methode){
         this.dlist = dlist;
-        this.list_adapter = list_adapter;
         this.controller = 1;
+        this.methode = methode;
     }
 }

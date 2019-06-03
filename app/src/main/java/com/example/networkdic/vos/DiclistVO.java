@@ -7,12 +7,14 @@ public class DiclistVO implements Serializable {
     private String fullname;
     private String explanation;
     private String korword;
+    private String unit;
 
-    public DiclistVO(String abbword, String fullname, String explanation, String korword) {
+    public DiclistVO(String abbword, String fullname, String explanation, String korword, String unit) {
         this.abbword = abbword;
         this.fullname = fullname;
         this.explanation = explanation;
         this.korword = korword;
+        this.unit = unit;
     }
 
     public String getAbbword() {
@@ -45,5 +47,13 @@ public class DiclistVO implements Serializable {
 
     public void setKorword(String korword) {
         this.korword = korword;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 }
