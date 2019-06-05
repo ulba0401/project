@@ -12,4 +12,5 @@
     <dimen name="word">30sp</dimen>
     <dimen name="copyright">9sp</dimen>
     <dimen name="rl_list">9sp</dimen>
+    <dimen name="asc_lists">15sp</dimen>
 </resources>
