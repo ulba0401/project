@@ -29,6 +29,7 @@ import static com.example.networkdic.R.layout.asc_main_fragment;
 public class Asc_main extends Fragment {
     MainActivity activity;
     ArrayList<DiclistVO> dlist = new ArrayList<>();
+    ArrayList<String> list = new ArrayList<>();
     private IndexableListView mListView;
     Select select;
 
@@ -53,8 +54,13 @@ public class Asc_main extends Fragment {
         try {
             select = new Select(dlist, "asc");
             dlist = select.execute().get();
+
+            for (int i = 0; i < dlist.size(); i++){
+                list.add(dlist.get(i).getAbbword());
+            }
+
             ContentAdapter adapter =
-                    new ContentAdapter(getContext(), R.layout.list_drawer_listview, dlist);
+                    new ContentAdapter(getContext(), R.layout.list_drawer_listview, list);
 
             mListView = rootView.findViewById(R.id.asc_list);
             mListView.setAdapter(adapter);

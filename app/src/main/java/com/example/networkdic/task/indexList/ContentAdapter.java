@@ -8,12 +8,12 @@ import com.example.networkdic.vos.DiclistVO;
 
 import java.util.List;
 
-public class ContentAdapter extends ArrayAdapter<DiclistVO> implements SectionIndexer {
+public class ContentAdapter extends ArrayAdapter<String> implements SectionIndexer {
 
     private String mSections = "#ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     public ContentAdapter(Context context, int textViewResourceId,
-                          List<DiclistVO> objects) {
+                          List<String> objects) {
         super(context, textViewResourceId, objects);
     }
 
@@ -25,11 +25,11 @@ public class ContentAdapter extends ArrayAdapter<DiclistVO> implements SectionIn
                 if (i == 0) {
                     // For numeric section
                     for (int k = 0; k <= 9; k++) {
-                        if (StringMatcher.match(String.valueOf(getItem(j).getAbbword().charAt(0)), String.valueOf(k)))
+                        if (StringMatcher.match(String.valueOf(getItem(j).charAt(0)), String.valueOf(k)))
                             return j;
                     }
                 } else {
-                    if (StringMatcher.match(String.valueOf(getItem(j).getAbbword().charAt(0)), String.valueOf(mSections.charAt(i))))
+                    if (StringMatcher.match(String.valueOf(getItem(j).charAt(0)), String.valueOf(mSections.charAt(i))))
                         return j;
                 }
             }
