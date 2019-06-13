@@ -6,10 +6,11 @@ public class UserVO implements Serializable {
     String id, pw, email, admin, isdel;
     private String result;
 
-    public UserVO(String id, String pw, String email) {
+    public UserVO(String id, String pw, String email, String admin) {
         this.id = id;
         this.pw = pw;
         this.email = email;
+        this.admin = admin;
     }
 
     public UserVO () {}

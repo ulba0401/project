@@ -5,8 +5,7 @@ import android.os.AsyncTask;
 import android.util.JsonReader;
 
 import com.example.networkdic.task.common.ReadMessage;
-import com.example.networkdic.task.indexList.ContentAdapter;
-import com.example.networkdic.vos.DiclistVO;
+import com.example.networkdic.vos.UserVO;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -23,33 +22,28 @@ import java.util.ArrayList;
 
 import static com.example.networkdic.task.common.CommonMethod.ipConfig;
 
-public class Select extends AsyncTask<ArrayList<DiclistVO>, Void, ArrayList<DiclistVO>> {
+public class SelectUser extends AsyncTask <ArrayList<UserVO>, Void, ArrayList<UserVO>> {
 
-    ArrayList<DiclistVO> dlist;
-
-    int controller;
-    String id;
-    String methode;
+    ArrayList<UserVO> ulist;
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        if (controller == 1) { dlist.clear(); }
+        ulist.clear();
     }
 
+
     @Override
-    protected ArrayList<DiclistVO> doInBackground(ArrayList<DiclistVO>... voids) {
+    protected ArrayList<UserVO> doInBackground(ArrayList<UserVO>... voids) {
         HttpClient httpClient = null;
         HttpPost httpPost = null;
         HttpResponse httpResponse = null;
         HttpEntity httpEntity = null;
 
-        String result = "";
         String postURL = "";
 
-        if (controller == 1) {
-            postURL = ipConfig + "/cnd/wordselect?methode=" + methode;
-        }
+        postURL = ipConfig + "/cnd/userselect";
+
 
         try {
             //MultipartEntityBuild  생성
@@ -68,8 +62,10 @@ public class Select extends AsyncTask<ArrayList<DiclistVO>, Void, ArrayList<Dicl
             inputStream = httpEntity.getContent();
 
             readJsonStream(inputStream);
+
         } catch (Exception e){
             e.printStackTrace();
+
         }finally {
             if(httpEntity != null){
                 httpEntity = null;
@@ -82,9 +78,7 @@ public class Select extends AsyncTask<ArrayList<DiclistVO>, Void, ArrayList<Dicl
             }
             ((AndroidHttpClient) httpClient).close();
         }
-
-
-        return dlist;
+        return ulist;
     }
 
     private void readJsonStream(InputStream inputStream)throws IOException {
@@ -93,19 +87,12 @@ public class Select extends AsyncTask<ArrayList<DiclistVO>, Void, ArrayList<Dicl
         try {
             reader.beginArray();
 
-            if (controller == 1) {
-                while (reader.hasNext()) {
-                    dlist.add(new ReadMessage().ascReadMessage(reader));
-                }
-            }
+            while (reader.hasNext()) {
+                ulist.add(new ReadMessage().userReadMessage(reader));
+        }
+
         } finally {
             reader.close();
         }
-    }
-
-    public Select(ArrayList<DiclistVO> dlist, String methode){
-        this.dlist = dlist;
-        this.controller = 1;
-        this.methode = methode;
     }
 }

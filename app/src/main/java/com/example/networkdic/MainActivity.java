@@ -23,6 +23,7 @@ import com.example.networkdic.menu.bookmark.Bookmark_main;
 import com.example.networkdic.menu.main.Main_main;
 import com.example.networkdic.menu.notice.Notice_main;
 import com.example.networkdic.menu.unit.Unit_main;
+import com.example.networkdic.menu.user.User_main;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -96,6 +97,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_join) {
             //회원가입
             onFragmentChange(7);
+        } else if (id == R.id.nav_userlist) {
+            //회원목록보기
+            onFragmentChange(8);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -112,6 +116,7 @@ public class MainActivity extends AppCompatActivity
         Main_main main = new Main_main();
         Notice_main notice = new Notice_main();
         Unit_main unit = new Unit_main();
+        User_main user = new User_main();
 
         if ( i == 1 ) {
             //메인화면
@@ -147,6 +152,10 @@ public class MainActivity extends AppCompatActivity
             //회원가입
             Intent intent = new Intent(MainActivity.this, Join.class);
             startActivity(intent);
+        }else if ( i == 8 ) {
+            //회원목록보기
+            ft.addToBackStack(null);
+            ft.replace(R.id.container, user).commit();
         }
 
 
