@@ -23,6 +23,7 @@
     <string name="setid">아이디</string>
     <string name="setpw">비밀번호</string>
     <string name="setpwch">비밀번호 확인</string>
+    <string name="setname">이름임</string>
     <string name="setaddr">주소</string>
     <string name="setemail">이메일</string>
     <string name="at">　@　</string>

@@ -12,6 +12,7 @@
         android:layout_weight="7"
         android:weightSum="10">
         <TextView
+            android:id="@+id/dabb"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
@@ -28,6 +29,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
             <TextView
+                android:id="@+id/dfull"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -59,22 +61,47 @@
         android:layout_height="1dp"
         android:background="@color/gray" />
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="70"
-        android:paddingBottom="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="10dp">
-
-        <TextView
-            style="@style/content"
+        android:orientation="vertical"
+        android:weightSum="2">
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/ex_content" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingBottom="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp">
 
-    </ScrollView>
+            <TextView
+                android:id="@+id/dkcontent"
+                style="@style/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ex_content" />
 
+        </ScrollView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingBottom="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/decontent"
+                style="@style/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ex_content" />
+
+        </ScrollView>
+
+    </LinearLayout>
     <View
         android:id="@+id/divider2"
         android:layout_width="match_parent"
@@ -88,23 +115,24 @@
         android:orientation="horizontal"
         android:weightSum="10"
         android:gravity="center">
-    <TextView
-        android:layout_width="0dp"
-        android:layout_weight="2"
-        android:layout_height="match_parent"
-        android:text="@string/r_unit"
-        style="@style/common_text"
-        android:padding="10dp"
-        android:gravity="center"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:text="@string/r_unit"
+            style="@style/common_text"
+            android:padding="10dp"
+            android:gravity="center"/>
 
         <TextView
-        android:layout_width="0dp"
-        android:layout_weight="8"
-        android:gravity="center|left"
-        android:layout_height="match_parent"
-        android:text="@string/ex"
-        android:padding="10dp"
-        style="@style/common_text"/>
+            android:id="@+id/dunit"
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:gravity="center|left"
+            android:layout_height="match_parent"
+            android:text="@string/ex"
+            android:padding="10dp"
+            style="@style/common_text"/>
     </LinearLayout>
 
     <View

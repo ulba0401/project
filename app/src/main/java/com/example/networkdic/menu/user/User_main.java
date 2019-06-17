@@ -8,24 +8,24 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.example.networkdic.MainActivity;
 import com.example.networkdic.R;
+import com.example.networkdic.task.adapter.UserAdapter;
 import com.example.networkdic.task.crud.SelectUser;
-import com.example.networkdic.task.indexList.ContentAdapter;
-import com.example.networkdic.task.indexList.IndexableListView;
 import com.example.networkdic.vos.UserVO;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-import static com.example.networkdic.R.layout.user_main_fragment;
 
-public class User_main extends Fragment {
+public class User_main extends Fragment implements Serializable {
     MainActivity activity;
-    ArrayList<UserVO> ulist = new ArrayList<>();
-    ArrayList<String> list = new ArrayList<>();
-    private IndexableListView mListView;
+    ArrayList<UserVO> ulist;
     SelectUser select;
+    UserAdapter adapter;
+    ListView listView;
 
     @Override
     public void onAttach(Context context) {
@@ -42,27 +42,16 @@ public class User_main extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup) inflater.inflate(user_main_fragment, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.user_main_fragment, container, false);
+        listView = rootView.findViewById(R.id.user_list);
 
         //사용할 데이터 집어넣기
-        try {
-            select = new SelectUser();
-            ulist = select.execute().get();
+        ulist = new ArrayList<>();
+        adapter = new UserAdapter(getActivity(), R.layout.user_drawer_listview, ulist);
+        listView.setAdapter(adapter);
 
-            for (int i = 0; i < ulist.size(); i++){
-                list.add(ulist.get(i).getId());
-            }
-
-            ContentAdapter adapter =
-                    new ContentAdapter(getContext(), R.layout.list_drawer_listview, list);
-
-            mListView = rootView.findViewById(R.id.user_list);
-            mListView.setAdapter(adapter);
-            mListView.setFastScrollEnabled(true);
-
-        } catch (Exception e){
-            e.getMessage();
-        }
+        select = new SelectUser(ulist, adapter);
+        select.execute();
 
 
         return rootView;

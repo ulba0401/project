@@ -4,6 +4,7 @@ import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 import android.util.JsonReader;
 
+import com.example.networkdic.task.adapter.UnitAdapter;
 import com.example.networkdic.task.common.ReadMessage;
 import com.example.networkdic.task.indexList.ContentAdapter;
 import com.example.networkdic.vos.DiclistVO;
@@ -27,13 +28,21 @@ import static com.example.networkdic.task.common.CommonMethod.ipConfig;
 public class SelectList extends AsyncTask<ArrayList<DiclistVO>, Void, ArrayList<DiclistVO>> {
 
     ArrayList<DiclistVO> dlist;
-
+    UnitAdapter adapter;
     String methode;
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
         dlist.clear();
+    }
+
+    @Override
+    protected void onPostExecute(ArrayList<DiclistVO> diclistVOS) {
+        super.onPostExecute(diclistVOS);
+        if (methode.equals("unit")){
+            adapter.notifyDataSetChanged();
+        }
     }
 
     @Override
@@ -91,12 +100,18 @@ public class SelectList extends AsyncTask<ArrayList<DiclistVO>, Void, ArrayList<
             reader.beginArray();
 
             while (reader.hasNext()) {
-                dlist.add(new ReadMessage().ascReadMessage(reader));
+                dlist.add(new ReadMessage().wordReadMessage(reader));
             }
 
         } finally {
             reader.close();
         }
+    }
+
+    public SelectList(ArrayList<DiclistVO> dlist, UnitAdapter adapter, String methode){
+        this.dlist = dlist;
+        this.adapter = adapter;
+        this.methode = methode;
     }
 
     public SelectList(ArrayList<DiclistVO> dlist, String methode){

@@ -8,7 +8,7 @@ import com.example.networkdic.vos.UserVO;
 import java.io.IOException;
 
 public class ReadMessage {
-    public DiclistVO ascReadMessage(JsonReader reader) throws IOException{
+    public DiclistVO wordReadMessage(JsonReader reader) throws IOException{
         String abb = "", full = "", expln = "", koword = "", unit="";
 
         reader.beginObject();
@@ -33,7 +33,7 @@ public class ReadMessage {
     }
 
     public UserVO userReadMessage(JsonReader reader) throws IOException {
-        String id="", pw="", email="", admin="";
+        String id="", pw="", email="", admin="", name="";
 
         reader.beginObject();
         while (reader.hasNext()){
@@ -46,12 +46,14 @@ public class ReadMessage {
                 email = reader.nextString();
             }else if (readStr.equals("admin")){
                 admin = reader.nextString();
+            }else if (readStr.equals("name")){
+                name = reader.nextString();
             }else {
                 reader.skipValue();
             }
         }
         reader.endObject();
-        return new UserVO(id, pw, email, admin);
+        return new UserVO(id, pw, name, email, admin);
 
     }
 }

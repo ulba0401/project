@@ -4,6 +4,7 @@ import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 import android.util.JsonReader;
 
+import com.example.networkdic.task.adapter.UserAdapter;
 import com.example.networkdic.task.common.ReadMessage;
 import com.example.networkdic.vos.UserVO;
 
@@ -22,9 +23,15 @@ import java.util.ArrayList;
 
 import static com.example.networkdic.task.common.CommonMethod.ipConfig;
 
-public class SelectUser extends AsyncTask <ArrayList<UserVO>, Void, ArrayList<UserVO>> {
+public class SelectUser extends AsyncTask <Void,Void,Void> {
 
     ArrayList<UserVO> ulist;
+    UserAdapter adapter;
+
+    public SelectUser(ArrayList<UserVO> ulist, UserAdapter adapter){
+        this.ulist = ulist;
+        this.adapter = adapter;
+    }
 
     @Override
     protected void onPreExecute() {
@@ -32,9 +39,14 @@ public class SelectUser extends AsyncTask <ArrayList<UserVO>, Void, ArrayList<Us
         ulist.clear();
     }
 
+    @Override
+    protected void onPostExecute(Void aVoid) {
+        super.onPostExecute(aVoid);
+        adapter.notifyDataSetChanged();
+    }
 
     @Override
-    protected ArrayList<UserVO> doInBackground(ArrayList<UserVO>... voids) {
+    protected Void doInBackground(Void... voids) {
         HttpClient httpClient = null;
         HttpPost httpPost = null;
         HttpResponse httpResponse = null;
@@ -78,7 +90,7 @@ public class SelectUser extends AsyncTask <ArrayList<UserVO>, Void, ArrayList<Us
             }
             ((AndroidHttpClient) httpClient).close();
         }
-        return ulist;
+        return null;
     }
 
     private void readJsonStream(InputStream inputStream)throws IOException {

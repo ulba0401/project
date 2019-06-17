@@ -3,17 +3,26 @@ package com.example.networkdic.vos;
 import java.io.Serializable;
 
 public class UserVO implements Serializable {
-    String id, pw, email, admin, isdel;
+    String id, pw, email, admin, isdel, name;
     private String result;
 
-    public UserVO(String id, String pw, String email, String admin) {
+    public UserVO(String id, String pw, String name, String email, String admin) {
         this.id = id;
         this.pw = pw;
+        this.name = name;
         this.email = email;
         this.admin = admin;
     }
 
     public UserVO () {}
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getAdmin() {
         return admin;
