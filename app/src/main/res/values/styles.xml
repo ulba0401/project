@@ -19,6 +19,13 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="unit">
+        <item name="android:textSize">@dimen/unit</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
     <style name="statusbar">
         <item name="android:background">@color/black</item>
     </style>
@@ -53,7 +60,7 @@
     <style name="word">
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/word</item>
-        <item name="android:gravity">bottom|left</item>
+        <item name="android:gravity">center|left</item>
         <item name="android:layout_marginLeft">10dp</item>
     </style>
     <style name="content">
@@ -68,6 +75,8 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/common</item>
         <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:gravity">left|top</item>
     </style>
 
     <style name="btn_s_on">

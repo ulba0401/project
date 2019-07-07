@@ -15,4 +15,5 @@
     <dimen name="user_list_id">16sp</dimen>
     <dimen name="user_list_name">10sp</dimen>
     <dimen name="asc_lists">15sp</dimen>
+    <dimen name="unit">9sp</dimen>
 </resources>

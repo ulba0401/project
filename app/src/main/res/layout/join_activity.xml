@@ -25,6 +25,14 @@
         android:hint="@string/setid"/>
 
     <EditText
+        android:id="@+id/join_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        style="@style/join"
+        android:inputType="textPersonName"
+        android:hint="@string/setname"/>
+
+    <EditText
         android:id="@+id/join_pw"
         android:layout_width="match_parent"
         android:layout_height="50dp"

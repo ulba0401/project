@@ -5,21 +5,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import com.example.networkdic.R;
 import com.example.networkdic.vos.DiclistVO;
 
-import java.util.ArrayList;
-
-public class UnitAdapter extends BaseAdapter {
+public class BmAdapter extends BaseAdapter {
 
     Context context;
     int layout;
     ArrayList<DiclistVO> arrayList;
     LayoutInflater inflater;
 
-    public UnitAdapter(Context context, int layout, ArrayList<DiclistVO> arrayList) {
+    public BmAdapter(Context context, int layout, ArrayList<DiclistVO> arrayList) {
         this.context = context;
         this.layout = layout;
         this.arrayList = arrayList;
@@ -43,27 +44,24 @@ public class UnitAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        final UnitViewHolder viewHolder;
+        final BmViewHolder viewHolder;
 
         if (convertView == null){
             convertView = inflater.inflate(layout, parent, false);
 
-            viewHolder = new UnitViewHolder();
-            viewHolder.abb = convertView.findViewById(R.id.uabb);
-            viewHolder.unit = convertView.findViewById(R.id.uunit);
+            viewHolder = new BmViewHolder();
 
-            convertView.setTag(viewHolder);
+            viewHolder.abb = convertView.findViewById(R.id.list_title);
         }else{
-            viewHolder = (UnitViewHolder) convertView.getTag();
+            viewHolder = (BmViewHolder) convertView.getTag();
         }
 
         viewHolder.abb.setText(arrayList.get(position).getAbbword());
-        viewHolder.unit.setText(arrayList.get(position).getUnit());
 
         return convertView;
     }
-    public  static class UnitViewHolder{
+
+    public static class BmViewHolder{
         public TextView abb;
-        public TextView unit;
     }
 }

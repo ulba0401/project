@@ -62,8 +62,8 @@ public class Join extends AppCompatActivity {
         Pattern pattern3 = Pattern.compile("개인정보 처리방침");
 
         Linkify.addLinks(check_txt, pattern1, "https://www.kiat.or.kr/site/contents/member/index4.jsp?menuID=001006004", null, filter);
-        Linkify.addLinks(check_txt, pattern2, "https://www.realtyprice.kr:447/notice/town/popInsertPersonal.search", null, filter);
-        Linkify.addLinks(check_txt, pattern3, "https://www.realtyprice.kr:447/notice/popup/personalPrivacy.htm", null, filter);
+        Linkify.addLinks(check_txt, pattern2, "https://www.kiat.or.kr/site/contents/member/index6.jsp?menuID=001006006", null, filter);
+        Linkify.addLinks(check_txt, pattern3, "https://www.kiat.or.kr/site/contents/member/index5_2019.jsp?menuID=001006012", null, filter);
 
 
         //약관동의 체크버튼

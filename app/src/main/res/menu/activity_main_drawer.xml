@@ -30,6 +30,9 @@
                 android:id="@+id/nav_login"
                 android:title="@string/menu_login"/>
             <item
+                android:id="@+id/nav_logout"
+                android:title="@string/menu_logout"/>
+            <item
                 android:id="@+id/nav_join"
                 android:title="@string/menu_join"/>
         </menu>

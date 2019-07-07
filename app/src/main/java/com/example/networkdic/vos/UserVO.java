@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class UserVO implements Serializable {
     String id, pw, email, admin, isdel, name;
+    Boolean Logintype;
     private String result;
 
     public UserVO(String id, String pw, String name, String email, String admin) {
@@ -15,6 +16,14 @@ public class UserVO implements Serializable {
     }
 
     public UserVO () {}
+
+    public Boolean getLogintype() {
+        return Logintype;
+    }
+
+    public void setLogintype(Boolean logintype) {
+        Logintype = logintype;
+    }
 
     public String getName() {
         return name;

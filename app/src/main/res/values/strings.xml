@@ -17,6 +17,7 @@
     <string name="menu_notice">고객센터</string>
     <string name="menu_userlist">회원목록</string>
     <string name="menu_login">로그인</string>
+    <string name="menu_logout">로그아웃</string>
     <string name="menu_join">회원가입</string>
     <string name="menu_bookmark">북마크</string>
 

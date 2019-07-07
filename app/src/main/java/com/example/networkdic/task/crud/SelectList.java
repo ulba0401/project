@@ -4,6 +4,7 @@ import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 import android.util.JsonReader;
 
+import com.example.networkdic.task.adapter.BmAdapter;
 import com.example.networkdic.task.adapter.UnitAdapter;
 import com.example.networkdic.task.common.ReadMessage;
 import com.example.networkdic.task.indexList.ContentAdapter;
@@ -28,8 +29,10 @@ import static com.example.networkdic.task.common.CommonMethod.ipConfig;
 public class SelectList extends AsyncTask<ArrayList<DiclistVO>, Void, ArrayList<DiclistVO>> {
 
     ArrayList<DiclistVO> dlist;
-    UnitAdapter adapter;
+    UnitAdapter unitAdapter;
     String methode;
+    BmAdapter bmAdapter;
+    int unit = 0;
 
     @Override
     protected void onPreExecute() {
@@ -41,7 +44,9 @@ public class SelectList extends AsyncTask<ArrayList<DiclistVO>, Void, ArrayList<
     protected void onPostExecute(ArrayList<DiclistVO> diclistVOS) {
         super.onPostExecute(diclistVOS);
         if (methode.equals("unit")){
-            adapter.notifyDataSetChanged();
+            unitAdapter.notifyDataSetChanged();
+        }else if(methode.equals("bm")){
+            bmAdapter.notifyDataSetChanged();
         }
     }
 
@@ -55,7 +60,10 @@ public class SelectList extends AsyncTask<ArrayList<DiclistVO>, Void, ArrayList<
         String result = "";
         String postURL = "";
 
-        postURL = ipConfig + "/cnd/wordselect?methode=" + methode;
+        if(unit == 0)
+            postURL = ipConfig + "/cnd/wordselect?methode=" + methode;
+        else
+            postURL = ipConfig + "/cnd/wordselect?methode=" + methode + "&unit=" + unit;
 
 
         try {
@@ -108,10 +116,23 @@ public class SelectList extends AsyncTask<ArrayList<DiclistVO>, Void, ArrayList<
         }
     }
 
+    public SelectList(ArrayList<DiclistVO> dlist, BmAdapter adapter, String methode){
+        this.dlist = dlist;
+        this.bmAdapter = adapter;
+        this.methode = methode;
+    }
+
     public SelectList(ArrayList<DiclistVO> dlist, UnitAdapter adapter, String methode){
         this.dlist = dlist;
-        this.adapter = adapter;
+        this.unitAdapter = adapter;
         this.methode = methode;
+    }
+
+    public SelectList(ArrayList<DiclistVO> dlist, UnitAdapter adapter, String methode, int unit){
+        this.dlist = dlist;
+        this.unitAdapter = adapter;
+        this.methode = methode;
+        this.unit = unit;
     }
 
     public SelectList(ArrayList<DiclistVO> dlist, String methode){

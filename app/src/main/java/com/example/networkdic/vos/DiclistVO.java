@@ -8,7 +8,19 @@ public class DiclistVO implements Serializable {
     private String explanation;
     private String korword;
     private String unit;
+    private String bookmark;
 
+    //로그인 후 받을 내용
+    public DiclistVO(String abbword, String fullname, String explanation, String korword, String unit, String bookmark) {
+        this.abbword = abbword;
+        this.fullname = fullname;
+        this.explanation = explanation;
+        this.korword = korword;
+        this.unit = unit;
+        this.bookmark = bookmark;
+    }
+
+    //로그인 안했을시 받을 내용
     public DiclistVO(String abbword, String fullname, String explanation, String korword, String unit) {
         this.abbword = abbword;
         this.fullname = fullname;

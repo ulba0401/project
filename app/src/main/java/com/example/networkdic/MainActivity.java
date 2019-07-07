@@ -2,6 +2,7 @@ package com.example.networkdic;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -15,6 +16,8 @@ import android.support.v4.widget.DrawerLayout;
 
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.CheckBox;
+import android.widget.TextView;
 
 import com.example.networkdic.login.Join;
 import com.example.networkdic.login.Login;
@@ -27,6 +30,9 @@ import com.example.networkdic.menu.user.User_main;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    //로그아웃버튼 누를시 true 로 활성화 됨
+    static public boolean logout_check = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +64,7 @@ public class MainActivity extends AppCompatActivity
 
 
     }
+
 
     @Override
     public void onBackPressed() {
@@ -100,6 +107,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_userlist) {
             //회원목록보기
             onFragmentChange(8);
+        } else if (id == R.id.nav_logout){
+            //로그아웃 처리
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
